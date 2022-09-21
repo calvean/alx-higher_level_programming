@@ -1,5 +1,31 @@
-#!/bin/bash
-python3 -m py_compile $PYFILE
-mv __pycache__/*.pyc ./$PYFILE'c'
-chmod +x $PYFILE'c'
-rmdir __pycache__
+#include <stdlib.h>
+#include "lists.h"
+
+/**
+ * check_cycle - Checks if a singly-linked list contains a cycle.
+ * @list: A singly-linked list.
+ *
+ * Return: 0 if fails, 1 if success
+ * 
+ */
+int check_cycle(listint_t *list)
+{
+	listint_t *turtle, *hare;
+
+	if (list == NULL || list->next == NULL)
+		return (0);
+
+	turtle = list->next;
+	hare = list->next->next;
+
+	while (turtle && hare && hare->next)
+	{
+		if (turtle == hare)
+			return (1);
+
+		turtle = turtle->next;
+		hare = hare->next->next;
+	}
+
+	return (0);
+}
