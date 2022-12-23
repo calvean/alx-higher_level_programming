@@ -1,9 +1,8 @@
-
 #!/usr/bin/python3
 
 if __name__ == "__main__":
     import MySQLdb
-    import sys
+    from sys import argv
 
     mysql_username = argv[1]
     mysql_password = argv[2]
@@ -12,12 +11,14 @@ if __name__ == "__main__":
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user= argv[1],
-        passwd= argv[2],
-        db= argv[3],
+        user=mysql_username,
+        passwd=mysql_password,
+        db=database_name,
+        charset="utf8",
     )
     cur = db.cursor()
-    all_rows = cur.fetchall("SELECT * FROM states ORDER BY id ASC")
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    all_rows = cur.fetchall()
     for row in all_rows:
         print(row)
     cur.close()
