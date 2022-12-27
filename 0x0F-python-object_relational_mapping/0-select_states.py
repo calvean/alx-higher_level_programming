@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-
+"""
+lists all states rom the
+database 'hbtn_0e_0_usa'
+"""
 if __name__ == "__main__":
     import MySQLdb
     from sys import argv
