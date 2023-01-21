@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-takes in a URL, sends a request to the URL and displays the body of the response.
-and Handles HTTP errors.
+takes in a URL, sends a request to the URL
+and displays the body of the response.
+ Handles HTTP errors.
 """
 import sys
 import requests
