@@ -11,7 +11,7 @@ if __name__ == "__main__":
         sys.argv[2], sys.argv[1])
 
     req = requests.get(url)
-    commits = req.json()
+    commits = req.json()[:10]
     try:
         for commit in commits:
             print(commit.get('sha'), end=': ')
